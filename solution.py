@@ -5,13 +5,12 @@ def answer(numbers):
         startPosition = numbers.index(min(numbers))
 
     loop = []
-    backHome = False
     nextPosition = startPosition + 1
 
-    if len(numbers) == 2:
+    if len(numbers) <= 2:
         return 2
     else:
-        while backHome is False:
+        while nextPosition != startPosition:
                 try:
                     numbers[nextPosition]
                     try:
@@ -23,9 +22,8 @@ def answer(numbers):
 
                 except IndexError:
                     nextPosition = 0
+        return len(loop)
 
-                if nextPosition == startPosition:
-                    if len(loop) == 1:
-                        return 2
-                    else:
-                        return len(loop)
+assert (answer([1, 3, 0, 1]) == 2)
+assert (answer([1, 0]) == 2)
+assert (answer([1, 2, 1]) == 2)
