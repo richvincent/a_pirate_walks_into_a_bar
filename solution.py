@@ -1,28 +1,18 @@
 def answer(numbers):
-    try:
-        startPosition = numbers.index(0)
-    except ValueError:
-        startPosition = numbers.index(min(numbers))
-
-    loop = []
-    nextPosition = startPosition + 1
-
-    if len(numbers) <= 2:
-        return 2
+    if isinstance(numbers, list):
+        loop = list(set(numbers))
+        if len(loop) < 5000:
+            if len(loop) > 2:
+                if loop[0] == 0:
+                    return len(loop) - 1
+            elif len(loop) == 2:
+                return 2
+        else:
+            raise ValueError('Please no less than 2 and\
+            more than 5000 pirates')
     else:
-        while nextPosition != startPosition:
-                try:
-                    numbers[nextPosition]
-                    try:
-                        loop.index(numbers[nextPosition])
-                    except ValueError:
-                        if numbers[nextPosition] != 0:
-                            loop.append(numbers[nextPosition])
-                    nextPosition += 1
+        raise ValueError('Please supply a list')
 
-                except IndexError:
-                    nextPosition = 0
-        return len(loop)
 
 assert (answer([1, 3, 0, 1]) == 2)
 assert (answer([1, 0]) == 2)
