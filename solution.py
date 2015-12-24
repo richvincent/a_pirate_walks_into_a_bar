@@ -7,11 +7,14 @@ def answer(numbers):
                     return len(loop) - 1
             elif len(loop) == 2:
                 return 2
+            else:
+                raise ValueError('Please no less than 2 and\
+                no more than 5000 pirates')
         else:
-            raise ValueError('Please no less than 2 and\
-            no more than 5000 pirates')
+            raise ValueError('Please supply a list')
     else:
-        raise ValueError('Please supply a list')
+        raise ValueError("Please ensure that only int's are\
+        in the list")
 
 
 assert (answer([1, 3, 0, 1]) == 2)
