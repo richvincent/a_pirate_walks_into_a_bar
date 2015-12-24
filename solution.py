@@ -9,7 +9,7 @@ def answer(numbers):
                 return 2
         else:
             raise ValueError('Please no less than 2 and\
-            more than 5000 pirates')
+            no more than 5000 pirates')
     else:
         raise ValueError('Please supply a list')
 
